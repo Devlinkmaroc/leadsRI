@@ -65,7 +65,7 @@ function validateForm(data) {
 
 // Générer l'URL avec les paramètres encodés dans la requête
 function generateURL(data) {
-    const baseURL = "http://ws.ga-media.fr/services";
+    const baseURL = "https://ws.ga-media.fr/services";
     const params = new URLSearchParams({
         GA_part: "EGNSDGGC",
         GA_ws: "WBJQUCEP",
