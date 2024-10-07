@@ -27,10 +27,10 @@ document.getElementById("leadForm").addEventListener("submit", function (event) 
         return;
     }
 
-    // Générer l'URL à envoyer
+    // Générer l'URL à envoyer à la fonction proxy
     const url = generateURL(data);
 
-    // Envoyer les données via une requête HTTP GET
+    // Envoyer les données via une requête HTTP GET à la fonction proxy
     sendLead(url);
 });
 
@@ -65,7 +65,7 @@ function validateForm(data) {
 
 // Générer l'URL avec les paramètres encodés dans la requête
 function generateURL(data) {
-    const baseURL = "https://ws.ga-media.fr/services";
+    const baseURL = "https://devlink-gamedia.netlify.app/.netlify/functions/api-proxy"; // Remplacez par l'URL de votre fonction proxy
     const params = new URLSearchParams({
         GA_part: "EGNSDGGC",
         GA_ws: "WBJQUCEP",
@@ -90,7 +90,7 @@ function generateExternalId() {
     return timestamp + randomNum; // Combine timestamp et numéro aléatoire pour garantir l'unicité
 }
 
-// Envoyer les données à l'API via une requête GET
+// Envoyer les données à la fonction proxy via une requête GET
 function sendLead(url) {
     fetch(url)
         .then(response => {
