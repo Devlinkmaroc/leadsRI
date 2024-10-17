@@ -1,47 +1,30 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    padding: 20px;
-}
-
-.lead-form, .leads-view {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 600px;
-    margin: auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.lead-form h2, .leads-view h2 {
-    margin-bottom: 20px;
-}
-
-input, select, button {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-}
-
-button {
-    background-color: #28a745;
-    color: white;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #218838;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: left;
-}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saisie de Lead</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="lead-form">
+        <h2>Saisie de Lead</h2>
+        <form id="leadForm">
+            <input type="text" id="nom" placeholder="Nom" required>
+            <input type="text" id="prenom" placeholder="Prénom" required>
+            <select id="civilite" required>
+                <option value="">Civilité</option>
+                <option value="Monsieur">Monsieur</option>
+                <option value="Madame">Madame</option>
+            </select>
+            <input type="text" id="adresse" placeholder="Adresse" required>
+            <input type="text" id="cp" placeholder="Code postal" required>
+            <input type="text" id="ville" placeholder="Ville" required>
+            <input type="tel" id="telephone" placeholder="Téléphone" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <button type="submit">Envoyer le lead</button>
+        </form>
+    </div>
+    <script src="leadSubmission.js"></script>
+</body>
+</html>
