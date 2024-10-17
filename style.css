@@ -6,6 +6,8 @@
     --font-color: #333;
     --border-color: #ddd;
     --shadow-color: rgba(0, 0, 0, 0.1);
+    --button-back-color: #007bff;
+    --button-back-hover: #0056b3;
 }
 
 body {
@@ -93,6 +95,23 @@ th {
 
 td {
     background-color: var(--secondary-color);
+}
+
+/* Style du bouton de retour à l'accueil */
+.back-button {
+    background-color: var(--button-back-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.back-button:hover {
+    background-color: var(--button-back-hover);
 }
 
 @media (max-width: 768px) {
