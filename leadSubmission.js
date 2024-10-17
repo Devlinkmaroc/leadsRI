@@ -23,13 +23,13 @@ document.getElementById("leadForm").addEventListener("submit", function (e) {
         return;
     }
 
-    if (!/^[0-9]{10}$/.test(leadData.telephone) || !leadData.telephone.startsWith("0")) {
-        alert("Numéro de téléphone doit commencer par 0 et avoir 10 chiffres.");
+    if (!/\S+@\S+\.\S+/.test(leadData.email)) {
+        alert("Adresse email est invalide.");
         return;
     }
 
-    if (!/\S+@\S+\.\S+/.test(leadData.email)) {
-        alert("Adresse email est invalide.");
+    if (!/^0[1-9][0-9]{8}$/.test(leadData.telephone)) {
+        alert("Numéro de téléphone doit commencer par 0 et avoir 10 chiffres.");
         return;
     }
 
@@ -41,8 +41,8 @@ document.getElementById("leadForm").addEventListener("submit", function (e) {
     const externalId = Math.floor(Math.random() * 100000000); // Génération d'un ExternalId unique
     const dateFormulaire = new Date().toISOString();
 
-    // Création de l'URL avec encodage des paramètres
-    const url = `https://ws.ga-media.fr/services?GA_part=EGNSDGGC&GA_ws=WBJQUCEP&ExternalId=${externalId}&DateFormulaire=${dateFormulaire}&nom=${encodeURIComponent(leadData.nom)}&prenom=${encodeURIComponent(leadData.prenom)}&civilite=${encodeURIComponent(leadData.civilite)}&adresse=${encodeURIComponent(leadData.adresse)}&cp=${encodeURIComponent(leadData.cp)}&ville=${encodeURIComponent(leadData.ville)}&telephone=${encodeURIComponent(leadData.telephone)}&email=${encodeURIComponent(leadData.email)}`;
+    // Création de l'URL pour la fonction serverless
+    const url = `/api/proxy?ExternalId=${externalId}&DateFormulaire=${dateFormulaire}&nom=${encodeURIComponent(leadData.nom)}&prenom=${encodeURIComponent(leadData.prenom)}&civilite=${encodeURIComponent(leadData.civilite)}&adresse=${encodeURIComponent(leadData.adresse)}&cp=${encodeURIComponent(leadData.cp)}&ville=${encodeURIComponent(leadData.ville)}&telephone=${encodeURIComponent(leadData.telephone)}&email=${encodeURIComponent(leadData.email)}`;
 
     // Envoi de l'URL via un web service (fetch)
     fetch(url)
