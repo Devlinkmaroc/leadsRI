@@ -2,6 +2,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const leads = JSON.parse(localStorage.getItem("leads")) || [];
     const leadsTableBody = document.getElementById("leadsTableBody");
 
+    // Vérification si le tableau est vide
+    if (leads.length === 0) {
+        const row = document.createElement("tr");
+        const cell = document.createElement("td");
+        cell.colSpan = 5; // Adaptez en fonction du nombre de colonnes
+        cell.textContent = "Aucun lead disponible.";
+        row.appendChild(cell);
+        leadsTableBody.appendChild(row);
+        return; // Sortir de la fonction si aucun lead
+    }
+
     leads.forEach(lead => {
         const row = document.createElement("tr");
 
@@ -10,7 +21,9 @@ document.addEventListener("DOMContentLoaded", function () {
         row.appendChild(externalIdCell);
 
         const dateCell = document.createElement("td");
-        dateCell.textContent = lead.date;
+        // Formatage de la date pour plus de clarté
+        const formattedDate = new Date(lead.date).toLocaleDateString();
+        dateCell.textContent = formattedDate;
         row.appendChild(dateCell);
 
         const nomCell = document.createElement("td");
