@@ -12,10 +12,37 @@ document.getElementById("leadForm").addEventListener("submit", function (e) {
         email: document.getElementById("email").value,
     };
 
+    // Validation des données
+    if (!["Monsieur", "Madame"].includes(leadData.civilite)) {
+        alert("Civilité doit être 'Monsieur' ou 'Madame'.");
+        return;
+    }
+
+    if (!/^[0-9]{5}$/.test(leadData.cp)) {
+        alert("Code postal doit être un nombre à 5 chiffres.");
+        return;
+    }
+
+    if (!/^[0-9]{10}$/.test(leadData.telephone) || !leadData.telephone.startsWith("0")) {
+        alert("Numéro de téléphone doit commencer par 0 et avoir 10 chiffres.");
+        return;
+    }
+
+    if (!/\S+@\S+\.\S+/.test(leadData.email)) {
+        alert("Adresse email est invalide.");
+        return;
+    }
+
+    if (!leadData.ville) {
+        alert("Ville est requise.");
+        return;
+    }
+
     const externalId = Math.floor(Math.random() * 100000000); // Génération d'un ExternalId unique
     const dateFormulaire = new Date().toISOString();
 
-    const url = `http://ws.ga-media.fr/services?GA_part=EGNSDGGC&GA_ws=WBJQUCEP&ExternalId=${externalId}&DateFormulaire=${dateFormulaire}&nom=${leadData.nom}&prenom=${leadData.prenom}&civilite=${leadData.civilite}&adresse=${leadData.adresse}&cp=${leadData.cp}&ville=${leadData.ville}&telephone=${leadData.telephone}&email=${leadData.email}`;
+    // Création de l'URL avec encodage des paramètres
+    const url = `http://ws.ga-media.fr/services?GA_part=EGNSDGGC&GA_ws=WBJQUCEP&ExternalId=${externalId}&DateFormulaire=${dateFormulaire}&nom=${encodeURIComponent(leadData.nom)}&prenom=${encodeURIComponent(leadData.prenom)}&civilite=${encodeURIComponent(leadData.civilite)}&adresse=${encodeURIComponent(leadData.adresse)}&cp=${encodeURIComponent(leadData.cp)}&ville=${encodeURIComponent(leadData.ville)}&telephone=${encodeURIComponent(leadData.telephone)}&email=${encodeURIComponent(leadData.email)}`;
 
     // Envoi de l'URL via un web service (fetch)
     fetch(url)
