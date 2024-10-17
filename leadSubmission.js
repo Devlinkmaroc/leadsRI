@@ -42,7 +42,7 @@ document.getElementById("leadForm").addEventListener("submit", function (e) {
     const dateFormulaire = new Date().toISOString();
 
     // Création de l'URL avec encodage des paramètres
-    const url = `http://ws.ga-media.fr/services?GA_part=EGNSDGGC&GA_ws=WBJQUCEP&ExternalId=${externalId}&DateFormulaire=${dateFormulaire}&nom=${encodeURIComponent(leadData.nom)}&prenom=${encodeURIComponent(leadData.prenom)}&civilite=${encodeURIComponent(leadData.civilite)}&adresse=${encodeURIComponent(leadData.adresse)}&cp=${encodeURIComponent(leadData.cp)}&ville=${encodeURIComponent(leadData.ville)}&telephone=${encodeURIComponent(leadData.telephone)}&email=${encodeURIComponent(leadData.email)}`;
+    const url = `https://ws.ga-media.fr/services?GA_part=EGNSDGGC&GA_ws=WBJQUCEP&ExternalId=${externalId}&DateFormulaire=${dateFormulaire}&nom=${encodeURIComponent(leadData.nom)}&prenom=${encodeURIComponent(leadData.prenom)}&civilite=${encodeURIComponent(leadData.civilite)}&adresse=${encodeURIComponent(leadData.adresse)}&cp=${encodeURIComponent(leadData.cp)}&ville=${encodeURIComponent(leadData.ville)}&telephone=${encodeURIComponent(leadData.telephone)}&email=${encodeURIComponent(leadData.email)}`;
 
     // Envoi de l'URL via un web service (fetch)
     fetch(url)
