@@ -7,25 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="leads-view">
-        <h2>Leads envoyés</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>External ID</th>
-                    <th>Date</th>
-                    <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody id="leadsTableBody">
-                <!-- Les données des leads seront insérées ici -->
-            </tbody>
-        </table>
-        <!-- Nouveau bouton pour revenir à la page d'accueil -->
-        <button onclick="window.location.href='index.html'" class="back-button">Retour à l'accueil</button>
-    </div>
+    <h1>Visualisation des Leads</h1>
+    <ul id="leadsList"></ul>
     <script src="leadsView.js"></script>
 </body>
 </html>
