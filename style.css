@@ -1,47 +1,110 @@
+:root {
+    --primary-color: #28a745;
+    --primary-color-hover: #218838;
+    --secondary-color: #fff;
+    --background-color: #f4f4f4;
+    --font-color: #333;
+    --border-color: #ddd;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--font-color);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
     padding: 20px;
 }
 
 .lead-form, .leads-view {
-    background-color: #fff;
+    background-color: var(--secondary-color);
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 10px;
     max-width: 600px;
-    margin: auto;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.lead-form:hover, .leads-view:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px var(--shadow-color);
 }
 
 .lead-form h2, .leads-view h2 {
     margin-bottom: 20px;
+    font-size: 24px;
+    color: var(--primary-color);
+    text-align: center;
 }
 
 input, select, button {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+    padding: 12px;
+    margin: 12px 0;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+    transition: border 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+input:focus, select:focus {
+    border-color: var(--primary-color);
+    outline: none;
 }
 
 button {
-    background-color: #28a745;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-weight: bold;
     cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease-in-out;
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: var(--primary-color-hover);
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
 th, td {
-    padding: 10px;
-    border: 1px solid #ccc;
+    padding: 12px;
+    border: 1px solid var(--border-color);
     text-align: left;
+    font-size: 16px;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+td {
+    background-color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+    .lead-form, .leads-view {
+        padding: 15px;
+    }
+
+    input, select, button {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
 }
