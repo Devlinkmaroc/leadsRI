@@ -3,30 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saisie de Lead</title>
+    <title>Formulaire de Lead</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="lead-form">
-        <h2>Saisie de Lead</h2>
-        <form id="leadForm">
-            <input type="text" id="nom" placeholder="Nom" required>
-            <input type="text" id="prenom" placeholder="Prénom" required>
-            <select id="civilite" required>
-                <option value="">Civilité</option>
-                <option value="Monsieur">Monsieur</option>
-                <option value="Madame">Madame</option>
-            </select>
-            <input type="text" id="adresse" placeholder="Adresse" required>
-            <input type="text" id="cp" placeholder="Code postal" required>
-            <input type="text" id="ville" placeholder="Ville" required>
-            <input type="tel" id="telephone" placeholder="Téléphone" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <button type="submit">Envoyer le lead</button>
-        </form>
-        <!-- Nouveau bouton pour revenir à la page d'accueil -->
-        <button onclick="window.location.href='index.html'" class="back-button">Retour à l'accueil</button>
-    </div>
+    <h1>Formulaire de Soumission de Lead</h1>
+    <div id="errorMessages" class="error-messages" style="display: none;"></div>
+    <form id="leadForm" role="form" aria-labelledby="formTitle">
+        <h2 id="formTitle">Formulaire de Soumission de Lead</h2>
+        <label for="nom">Nom:</label>
+        <input type="text" id="nom" required aria-required="true" tabindex="1">
+        
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" required aria-required="true" tabindex="2">
+        
+        <label for="civilite">Civilité:</label>
+        <select id="civilite" required aria-required="true" tabindex="3">
+            <option value="Monsieur">Monsieur</option>
+            <option value="Madame">Madame</option>
+        </select>
+
+        <label for="adresse">Adresse:</label>
+        <input type="text" id="adresse" required aria-required="true" tabindex="4">
+        
+        <label for="cp">Code Postal:</label>
+        <input type="text" id="cp" required aria-required="true" tabindex="5">
+        
+        <label for="ville">Ville:</label>
+        <input type="text" id="ville" required aria-required="true" tabindex="6">
+        
+        <label for="telephone">Téléphone:</label>
+        <input type="tel" id="telephone" required aria-required="true" tabindex="7">
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" required aria-required="true" tabindex="8">
+
+        <button type="submit" tabindex="9">Soumettre</button>
+    </form>
     <script src="leadSubmission.js"></script>
 </body>
 </html>
