@@ -1,129 +1,54 @@
-:root {
-    --primary-color: #28a745;
-    --primary-color-hover: #218838;
-    --secondary-color: #fff;
-    --background-color: #f4f4f4;
-    --font-color: #333;
-    --border-color: #ddd;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-    --button-back-color: #007bff;
-    --button-back-hover: #0056b3;
-}
-
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--background-color);
-    color: var(--font-color);
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    line-height: 1.6;
 }
 
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
+h1 {
+    color: #333;
 }
 
-.lead-form, .leads-view {
-    background-color: var(--secondary-color);
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 600px;
-    margin: 40px auto;
-    box-shadow: 0 4px 12px var(--shadow-color);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+form {
+    margin: 20px 0;
+    max-width: 500px;
+    margin: auto; /* Centrer le formulaire */
 }
 
-.lead-form:hover, .leads-view:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 18px var(--shadow-color);
+label {
+    display: block;
+    margin-top: 10px;
 }
 
-.lead-form h2, .leads-view h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: var(--primary-color);
-    text-align: center;
-}
-
-input, select, button {
+input, select {
     width: 100%;
-    padding: 12px;
-    margin: 12px 0;
-    border-radius: 6px;
-    border: 1px solid var(--border-color);
-    font-size: 16px;
-    transition: border 0.3s ease-in-out, background-color 0.3s ease-in-out;
-}
-
-input:focus, select:focus {
-    border-color: var(--primary-color);
-    outline: none;
+    padding: 10px;
+    margin-top: 5px;
 }
 
 button {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    font-weight: bold;
-    cursor: pointer;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #007BFF;
+    color: white;
     border: none;
-    transition: background-color 0.3s ease-in-out;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 button:hover {
-    background-color: var(--primary-color-hover);
+    background-color: #0056b3;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+.error-messages {
+    color: red;
+    margin-bottom: 20px;
 }
 
-th, td {
-    padding: 12px;
-    border: 1px solid var(--border-color);
-    text-align: left;
-    font-size: 16px;
-}
-
-th {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-}
-
-td {
-    background-color: var(--secondary-color);
-}
-
-/* Style du bouton de retour à l'accueil */
-.back-button {
-    background-color: var(--button-back-color);
-    color: var(--secondary-color);
-    border: none;
-    padding: 10px 20px;
-    margin-top: 10px;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.back-button:hover {
-    background-color: var(--button-back-hover);
-}
-
-@media (max-width: 768px) {
-    .lead-form, .leads-view {
-        padding: 15px;
-    }
-
-    input, select, button {
-        font-size: 14px;
-    }
-
-    th, td {
+@media (max-width: 600px) {
+    body {
         padding: 10px;
+    }
+    form {
+        margin: 10px;
     }
 }
