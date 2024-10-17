@@ -3,69 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire de Leads</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Lead Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+        }
+        .container a {
+            display: block;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+        .container a:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-
     <div class="container">
-        <h1 id="form-title">Formulaire de Leads</h1>
-        <form id="leadForm" aria-labelledby="form-title">
-            <!-- Informations du formulaire -->
-            <fieldset>
-                <legend>Informations du formulaire</legend>
-
-                <label for="externalId">External ID:</label>
-                <input type="text" id="externalId" readonly>
-
-                <label for="dateSaisie">Date et heure de saisie:</label>
-                <input type="datetime-local" id="dateSaisie" readonly>
-            </fieldset>
-
-            <!-- Informations personnelles -->
-            <fieldset>
-                <legend>Informations personnelles</legend>
-
-                <label for="nom">Nom:</label>
-                <input type="text" id="nom" required placeholder="Votre nom">
-
-                <label for="prenom">Prénom:</label>
-                <input type="text" id="prenom" required placeholder="Votre prénom">
-
-                <label for="civilite">Civilité:</label>
-                <select id="civilite" required>
-                    <option value="">Sélectionnez</option>
-                    <option value="Monsieur">Monsieur</option>
-                    <option value="Madame">Madame</option>
-                </select>
-            </fieldset>
-
-            <!-- Coordonnées -->
-            <fieldset>
-                <legend>Coordonnées</legend>
-
-                <label for="adresse">Adresse:</label>
-                <input type="text" id="adresse" required placeholder="Votre adresse complète">
-
-                <label for="cp">Code Postal:</label>
-                <input type="text" id="cp" required placeholder="Ex: 75001" pattern="\d{5}" title="Le code postal doit comporter 5 chiffres">
-
-                <label for="ville">Ville:</label>
-                <input type="text" id="ville" required placeholder="Votre ville">
-
-                <label for="telephone">Téléphone:</label>
-                <input type="text" id="telephone" required placeholder="Ex: 0601020304" pattern="\d{10}" title="Le numéro doit comporter 10 chiffres">
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" required placeholder="votre.email@exemple.com">
-            </fieldset>
-
-            <button type="submit">Envoyer</button>
-        </form>
-
-        <div id="result"></div>
+        <h1>Gestion des Leads</h1>
+        <a href="formulaire.html">Saisie de Lead</a>
+        <a href="visualisation.html">Visualisation des Leads</a>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
