@@ -19,13 +19,21 @@ document.getElementById("leadForm").addEventListener("submit", function (e) {
 
     // Envoi de l'URL via un web service (fetch)
     fetch(url)
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Erreur réseau : " + response.statusText);
+            }
+            return response.text();
+        })
         .then(data => {
             alert("Lead envoyé avec succès !");
             // Sauvegarder le lead pour affichage ultérieur
             saveLead(externalId, dateFormulaire, leadData);
         })
-        .catch(error => console.error("Erreur d'envoi du lead :", error));
+        .catch(error => {
+            alert("Erreur d'envoi du lead : " + error.message);
+            console.error("Erreur d'envoi du lead :", error);
+        });
 });
 
 function saveLead(externalId, date, leadData) {
